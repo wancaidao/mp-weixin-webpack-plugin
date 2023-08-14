@@ -20,6 +20,8 @@ class MpWeixinPlugin {
             }
             const projectPath = compiler.options.output.path;
             const weAppDevToolsPath = this.options.weixinDevToolsPath;
+            console.log("");
+            console.log("^O^ Try opening the Weixin Mini Program Devtools");
             if (weAppDevToolsPath) {
                 const cliPath = path.join(weAppDevToolsPath, "cli");
                 const wxCmd = `"${cliPath}" open --project ${projectPath}`;
@@ -28,7 +30,6 @@ class MpWeixinPlugin {
             } else if (which("xpack-cli")) {
                 exec(`xpack-cli open weapp ${projectPath}`);
                 isOpen = true;
-                return;
             }
         };
         compiler.hooks.afterEmit.tapPromise(PLUGIN_NAME, onEnd);

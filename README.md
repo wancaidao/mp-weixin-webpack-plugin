@@ -1,5 +1,7 @@
 # mp-weixin-webpack-plugin
 
+自动打开微信开发者工具
+
 ## Install
 
 ```bash

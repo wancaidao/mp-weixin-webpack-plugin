@@ -1,6 +1,6 @@
 {
     "name": "@yilabao/mp-weixin-webpack-plugin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Webpack plugin to mp-weixin",
     "type": "module",
     "main": "./dist/index.cjs",

@@ -1,6 +1,6 @@
 # mp-weixin-webpack-plugin
 
-自动打开微信开发者工具
+自动打开微信开发者工具（uni-app）
 
 ## Install
 
@@ -18,6 +18,10 @@ yarn add add @yilabao/mp-weixin-webpack-plugin --dev
 const MpWeixinWebpackPlugin = require("@yilabao/mp-weixin-webpack-plugin");
 
 export default {
-    plugins: [new MpWeixinWebpackPlugin({ weixinDevToolsPath: "" })],
+    plugins: [
+        new MpWeixinWebpackPlugin({
+            weixinDevToolsPath: "微信开发者工具安装路径",
+        }),
+    ],
 };
 ```

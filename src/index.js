@@ -21,7 +21,9 @@ class MpWeixinPlugin {
             const projectPath = compiler.options.output.path;
             const weAppDevToolsPath = this.options.weixinDevToolsPath;
             console.log("");
+            console.log("");
             console.log("^O^ Try opening the Weixin Mini Program Devtools");
+            console.log("");
             if (weAppDevToolsPath) {
                 const cliPath = path.join(weAppDevToolsPath, "cli");
                 const wxCmd = `"${cliPath}" open --project ${projectPath}`;

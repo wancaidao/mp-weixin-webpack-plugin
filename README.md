@@ -5,9 +5,9 @@
 ## Install
 
 ```bash
-npm install add @yilabao/mp-weixin-webpack-plugin --save-dev
+npm install @yilabao/mp-weixin-webpack-plugin --save-dev
 # or
-yarn add add @yilabao/mp-weixin-webpack-plugin --dev
+yarn add @yilabao/mp-weixin-webpack-plugin --dev
 ```
 
 ## Usage

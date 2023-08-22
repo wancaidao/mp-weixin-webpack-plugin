@@ -1,5 +1,6 @@
 const { exec, which } = require("shelljs");
 const path = require("path");
+const fs = require("fs");
 
 const PLUGIN_NAME = "MpWeixinPlugin";
 
@@ -22,6 +23,7 @@ class MpWeixinPlugin {
             const weAppDevToolsPath = this.options.weixinDevToolsPath;
             console.log("");
             console.log("");
+            this.modifyProjectName(projectPath);
             console.log("^O^ Try opening the Weixin Mini Program Devtools");
             console.log("");
             if (weAppDevToolsPath) {
@@ -35,6 +37,21 @@ class MpWeixinPlugin {
             }
         };
         compiler.hooks.afterEmit.tapPromise(PLUGIN_NAME, onEnd);
+    }
+    modifyProjectName(projectPath) {
+        let configFilePath = path.join(projectPath, "project.private.config.json");
+        if (!fs.existsSync(configFilePath)) {
+            configFilePath = path.join(projectPath, "project.config.json");
+            if (!fs.existsSync(configFilePath)) {
+                return;
+            }
+        }
+        const suffix = projectPath.includes("build") ? "build" : "dev";
+        const configJsonString = fs.readFileSync(configFilePath);
+        const configJson = JSON.parse(configJsonString);
+        configJson.projectname = `${configJson.projectname}-${suffix}`;
+        fs.writeFileSync(configFilePath, JSON.stringify(configJson));
+        console.log(`^O^ Change the project name to ${configJson.projectname}`);
     }
 }
 
